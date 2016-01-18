@@ -1,0 +1,34 @@
+{{log error}}
+<form class="form-horizontal" method="post" data-toggle="validator">
+    <fieldset>
+        <div class="form-group {{if recipes.rname "has-error"}}">
+            <label for="rnev" class="col-lg-2 control-label">Név</label>
+            <div class="col-lg-10">
+                <input required class="form-control" id="rnev" name="rnev"  type="text" value="{{recipe.rname}}">
+                <div class="help-block">{{recipes.rname}}</div>
+            </div>
+        </div>
+        <div class="form-group {{if recipes.preparation "has-error"}}">
+            <label for="elkeszites" class="col-lg-2 control-label">Elkészítés</label>
+            <div class="col-lg-10">
+                <textarea required class="form-control" rows="3" id="elkeszites" name="elkeszites">{{recipe.preparation}}</textarea>
+                <span class="help-block">Az étel elkészítése.</span>
+                <div class="help-block">{{recipes.preparation}}</div>
+            </div>
+        </div>
+        <div class="form-group {{if recipes.ingredients "has-error"}}">
+            <label for="hozzavalok" class="col-lg-2 control-label">Hozzávalók</label>
+            <div class="col-lg-10">
+                <textarea required class="form-control" rows="3" id="hozzavalok" name="hozzavalok">{{recipe.ingredients}}</textarea>
+                <span class="help-block">Az étel hozzávalói.</span>
+                <div class="help-block">{{recipes.ingredients}}</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Mégse</button>
+                <button {{action "submit"}} class="btn btn-primary">Megerősít</button>
+            </div>
+        </div>
+    </fieldset>
+</form>        

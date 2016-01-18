@@ -1,0 +1,24 @@
+<table class="table table-striped table-hover " id="errorTable">
+    <thead>
+        <tr>
+            <th>Név</th>
+            <th>Elkészítés</th>
+            <th>Hozzávalók</th>
+            <th>Funkciók</th>
+        </tr>   
+    </thead>
+    <tbody>
+        {{#each recipes}}
+        <tr>
+            <td>{{rname}}</td>
+            <td>{{preparation}}</td>
+            <td>{{ingredients}}</td>
+            <td>
+                {{link-to "Megtekint" "recipes.view" this class="btn btn-default btn-sm"}}
+                {{link-to "Szerkeszt" "recipes.edit" this class="btn btn-default btn-sm"}}
+                <button {{action "deleteRecipe" this}} class="btn btn-default btn-sm">Törlés</button>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
